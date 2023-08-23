@@ -1,0 +1,10 @@
+name:wsad
+standartRooms:5
+superiorRooms:5
+presidetnRooms:5
+priceStandartRoom:5
+priceSuperiorRoom:5
+pricePresidentRoom:5
+availableStandartRooms:2
+availableSuperiorRooms:3
+availablePresidentRooms:2

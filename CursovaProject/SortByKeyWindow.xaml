@@ -1,0 +1,21 @@
+﻿<Window x:Class="CursovaProject.SortByKeyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CursovaProject"
+        mc:Ignorable="d"
+        Title="SortByKeyWindow" Height="270" Width="300"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#7895CB">
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock TextWrapping="Wrap" TextAlignment="Center">Виберіть ключ по якому потрібно посортувати кімнати.</TextBlock>
+        <ComboBox Name="SortKeys" Width="150" Margin="5">
+            <ComboBoxItem Name="NumberSortItem">По номеру</ComboBoxItem>
+            <ComboBoxItem Name="ResidentQuantitySortItem">По к-сті відвідувачів</ComboBoxItem>
+            <ComboBoxItem Name="TypeOfRoomSortItem">По типу</ComboBoxItem>
+        </ComboBox>
+        <Button x:Name="SortByKey" Click="SortByKey_Click" Width="150" Padding="5">Відсортувати</Button>
+    </StackPanel>
+</Window>

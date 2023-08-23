@@ -1,0 +1,2 @@
+roomType:StandartRoom
+roomNumber:1

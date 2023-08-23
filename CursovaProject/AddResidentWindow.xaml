@@ -1,0 +1,55 @@
+﻿<Window x:Class="CursovaProject.AddResidentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CursovaProject"
+        mc:Ignorable="d"
+        Title="Додати відвідувачів" Height="270" Width="300"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#7895CB">
+    <StackPanel Orientation="Vertical">
+        <TextBlock HorizontalAlignment="Center" Margin="5">
+            Будь ласка введіть дані про особу.
+        </TextBlock>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                    <Setter Property="Margin" Value="5"></Setter>
+                    <Setter Property="Width" Value="100"></Setter>
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Margin" Value="5"></Setter>
+                </Style>
+            </Grid.Resources>
+            <Label Grid.Row="0" Grid.Column="0">Ім'я:</Label>
+            <Label Grid.Row="1" Grid.Column="0">Прізвище:</Label>
+            <Label Grid.Row="2" Grid.Column="0">По-батькові:</Label>
+            <Label Grid.Row="3" Grid.Column="0">Серія паспорта:</Label>
+            <Label Grid.Row="4" Grid.Column="0">Номер паспота:</Label>
+            <TextBox Grid.Row="0" Grid.Column="1" x:Name="tbName"></TextBox>
+            <TextBox Grid.Row="1" Grid.Column="1" x:Name="tbSurname"></TextBox>
+            <TextBox Grid.Row="2" Grid.Column="1" x:Name="tbSecondName"></TextBox>
+            <TextBox Grid.Row="3" Grid.Column="1" x:Name="tbPassportSeries"></TextBox>
+            <TextBox Grid.Row="40" Grid.Column="1" x:Name="tbPassportNumber"></TextBox>
+        </Grid>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button x:Name="AddResidentButton" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" Padding="5" Click="AddResidentButton_Click">
+                 Додати відвідувача
+            </Button>
+        </StackPanel>
+    </StackPanel>
+</Window>

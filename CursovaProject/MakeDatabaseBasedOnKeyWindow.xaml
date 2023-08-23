@@ -1,0 +1,39 @@
+﻿<Window x:Class="CursovaProject.MakeDatabaseBasedOnKeyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CursovaProject"
+        mc:Ignorable="d"
+        Title="MakeDatabaseBasedOnKeyWindow" Height="270" Width="320"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#7895CB">
+    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <TextBlock Margin="0 0 0 5" TextAlignment="Center" TextWrapping="Wrap">
+            Будь ласка виберіть ключ по якому потрібно створити базу даних
+        </TextBlock>
+        <ComboBox Margin="5 0 5 5" Name="OptionsToCreateDatabaseComboBox" SelectionChanged="OptionsToCreateDatabaseComboBox_SelectionChanged">
+            <ComboBoxItem Name="CreateByRoomType">За типом кімнати</ComboBoxItem>
+            <ComboBoxItem Name="CreateByPricePerNight">За вартістю за ніч</ComboBoxItem>
+            <ComboBoxItem Name="CreateByAllResidents">Усіх проживаючих</ComboBoxItem>
+        </ComboBox>
+        <ComboBox Margin="5 0 5 5" Name="RoomTypesComboBox" Visibility="Collapsed">
+            <ComboBoxItem Name="StandartRoom">Standart Room</ComboBoxItem>
+            <ComboBoxItem Name="SuperiorRoom">Superior Room</ComboBoxItem>
+            <ComboBoxItem Name="PresidentRoom">President Room</ComboBoxItem>
+        </ComboBox>
+        <StackPanel x:Name="PriceOptionStackPanel" Visibility="Collapsed" Margin="0 0 0 5" Orientation="Horizontal" HorizontalAlignment="Center">
+            <ComboBox Width="80" Margin="5 0 5 0" Name="MoreOrLessOptionCBItem">
+                <ComboBoxItem Name="MoreThanOption">Більше</ComboBoxItem>
+                <ComboBoxItem Name="LessThanOption">Менше</ComboBoxItem>
+            </ComboBox>
+            <TextBox Width="50" Margin="5 0 5 0" Name="PriceTextBoxOption"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBox Margin="5 0 5 0" Name="PathTextBox" Width="200"></TextBox>
+            <Button Name="CreateDatabseBasedOnOption" Margin="0 0 5 0" Click="CreateDatabseBasedOnOption_Click" >Вибрати шлях</Button>
+        </StackPanel>
+        <Button Width="150" Margin="0 5 0 0" Padding="5" Name="CreateDatabaseButton" Click="CreateDatabaseButton_Click">Створити базу даних</Button>
+    </StackPanel>
+</Window>

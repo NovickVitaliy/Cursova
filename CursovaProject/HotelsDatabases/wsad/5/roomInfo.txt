@@ -1,0 +1,2 @@
+roomType:SuperiorRoom
+roomNumber:5
