@@ -69,11 +69,11 @@
     <Compile Include="AddResidentWindow.xaml.cs">
       <DependentUpon>AddResidentWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DeleteResidentWindow.xaml.cs">
-      <DependentUpon>DeleteResidentWindow.xaml</DependentUpon>
+    <Compile Include="FreeHotelRoomWindow.xaml.cs">
+      <DependentUpon>FreeHotelRoomWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EditDataAboutHotel.xaml.cs">
-      <DependentUpon>EditDataAboutHotel.xaml</DependentUpon>
+    <Compile Include="EditDataAboutHotelWindow.xaml.cs">
+      <DependentUpon>EditDataAboutHotelWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditDatesWindow.xaml.cs">
       <DependentUpon>EditDatesWindow.xaml</DependentUpon>
@@ -94,11 +94,11 @@
     <Compile Include="RegisterResidentWindow.xaml.cs">
       <DependentUpon>RegisterResidentWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RemoveConcreteResident.xaml.cs">
-      <DependentUpon>RemoveConcreteResident.xaml</DependentUpon>
+    <Compile Include="RemoveConcreteResidentWindow.xaml.cs">
+      <DependentUpon>RemoveConcreteResidentWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="RoomFactories\PresidentRoomFactory.cs" />
-    <Compile Include="RoomFactories\RoomFactory.cs" />
+    <Compile Include="RoomFactories\IRoomFactory.cs" />
     <Compile Include="RoomFactories\StandartRoomFactory.cs" />
     <Compile Include="RoomFactories\SuperiorRoomFactory.cs" />
     <Compile Include="Rooms\HotelRoom.cs" />
@@ -109,8 +109,8 @@
     <Compile Include="SortByKeyWindow.xaml.cs">
       <DependentUpon>SortByKeyWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TotalNumbersOfResidentsInSpecificRoomType.xaml.cs">
-      <DependentUpon>TotalNumbersOfResidentsInSpecificRoomType.xaml</DependentUpon>
+    <Compile Include="TotalNumbersOfResidentsInSpecificRoomTypeWindow.xaml.cs">
+      <DependentUpon>TotalNumbersOfResidentsInSpecificRoomTypeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Useful Extensions\LINQExtensions.cs" />
     <Page Include="AddHotelsWindow.xaml">
@@ -121,15 +121,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DeleteHotelButton.xaml">
+    <Page Include="DeleteHotelWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DeleteResidentWindow.xaml">
+    <Page Include="FreeHotelRoomWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EditDataAboutHotel.xaml">
+    <Page Include="EditDataAboutHotelWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -161,8 +161,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DatabaseManager.cs" />
-    <Compile Include="DeleteHotelButton.xaml.cs">
-      <DependentUpon>DeleteHotelButton.xaml</DependentUpon>
+    <Compile Include="DeleteHotelWindow.xaml.cs">
+      <DependentUpon>DeleteHotelWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Hotel.cs" />
     <Compile Include="HotelManager.cs" />
@@ -178,7 +178,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RemoveConcreteResident.xaml">
+    <Page Include="RemoveConcreteResidentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -186,7 +186,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TotalNumbersOfResidentsInSpecificRoomType.xaml">
+    <Page Include="TotalNumbersOfResidentsInSpecificRoomTypeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

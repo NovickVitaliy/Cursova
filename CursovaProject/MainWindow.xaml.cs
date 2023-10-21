@@ -50,29 +50,11 @@ namespace CursovaProject
       addHotelsWindow.Show();
     }
 
-    //private void RenderButtonsResponsibleForDatabases(string[] namesOfDatabases)
+    //private void RenderHotelDetails(object sender, RoutedEventArgs e)
     //{
-    //    foreach(string name in namesOfDatabases)
-    //    {
-    //        var btn = new Button()
-    //        {
-    //            Name = name,
-    //            Content = name,
-    //        };
-
-    //        btn.Click += RenderHotelDetails;
-
-    //    }
+    //  var btn = (Button)sender;
+    //  MessageBox.Show(btn.Content.ToString());
     //}
-
-
-
-    private void RenderHotelDetails(object sender, RoutedEventArgs e)
-    {
-      var btn = (Button)sender;
-
-      MessageBox.Show(btn.Content.ToString());
-    }
 
     private void DeleteHotelButton_Click(object sender, RoutedEventArgs e)
     {
@@ -86,13 +68,6 @@ namespace CursovaProject
       ChooseHotelPrompt.Visibility = Visibility.Collapsed;
       var btn = (sender as Button);
       _chosenHotel = hotelList.Where((hotel) => hotel.Name == btn.Content.ToString()).FirstOrDefault();
-      //HotelTextBlock.DataContext = _chosenHotel;
-      //StandartRoomTextBlock.DataContext= _chosenHotel;
-      //SuperiorRoomTextBlock.DataContext = _chosenHotel;
-      //PresidentRoomTextBlock.DataContext = _chosenHotel;
-      //AvailablePresidentRoomTextBlock.DataContext = _chosenHotel;
-      //AvailableStandartRoomTextBlock.DataContext = _chosenHotel;
-      //AvailableSuperiorRoomTextBlock.DataContext = _chosenHotel;
       HotelRoomsItemsControl.DataContext = _chosenHotel;
       HotelRoomsItemsControl.ItemsSource = _chosenHotel.HotelRooms;
       HotelDetailsItemsControl.DataContext = _chosenHotel;
@@ -117,7 +92,7 @@ namespace CursovaProject
 
     private void DeleteResidenButton_Click(object sender, RoutedEventArgs e)
     {
-      DeleteResidentWindow deleteResidentWindow = new DeleteResidentWindow(_chosenHotel, _databaseManager);
+      FreeHotelRoom deleteResidentWindow = new FreeHotelRoom(_chosenHotel, _databaseManager);
       deleteResidentWindow.Show();
     }
 

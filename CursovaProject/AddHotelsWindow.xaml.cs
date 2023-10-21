@@ -101,7 +101,7 @@ namespace CursovaProject
                             tbPriceOnePersonPresidentRoom.IsEnabled = false;
                             break;
                         default:
-                            throw new Exception("ахахахахха лошара");
+                            throw new Exception();
                     }
                 }
                 else

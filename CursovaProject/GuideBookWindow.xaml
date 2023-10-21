@@ -22,14 +22,76 @@
           <Image Width="300" Source="C:\Users\User\source\repos\CursovaProject\CursovaProject\GuidebookImages\addHotelDetails.png"/>
         </Border>
         <Label>Після введення запрошеної інформації натисніть кнопку "Створити базу даних готель ..."</Label>
+        <Label></Label>
+        <Label>На головному вікні зверху ви побачите панель де буде писати основні дані про ваш готель</Label>
+        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left">
+          <Image Source="C:\Users\User\source\repos\CursovaProject\CursovaProject\GuidebookImages\infoAboutHotel.png"></Image>
+        </Border>
         <Label FontSize="20" FontWeight="Bold" Content="2. Реєстрація кімнат"/>
         <Label>Після того як готель було створено ви можете зареєструвати кімнату скориставшись кнопкою "Зареєструвати кімнату в головній панелі керування"</Label>
         <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left">
-          <Image Source="C:\Users\User\source\repos\CursovaProject\CursovaProject\GuidebookImages\mainPanel.png"></Image>
+          <Image Source="C:\Users\User\source\repos\CursovaProject\CursovaProject\GuidebookImages\mainPanel1.png"></Image>
         </Border>
         <Label></Label>
         <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left">
           <Image Source="C:\Users\User\source\repos\CursovaProject\CursovaProject\GuidebookImages\registerRoom.png">
+          </Image>
+        </Border>
+        <Label>У даному вікні ви вибираєте тип кімнати яку ви хочете зареєструвати та вести дати заїзду та виїзду з кімнати</Label>
+        <Label FontSize="20" FontWeight="Bold" Content="3. Додавання жителів"/>
+        <Label>Після того як ви зареєстрували кімнату, нижче під головною панеллю ви побачите регіони які ви зможете розширити. Це і є ваша новостворена кімната в яку ви можете додавати жителів</Label>
+        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left">
+          <Image Source="C:\Users\User\source\repos\CursovaProject\CursovaProject\GuidebookImages\addResident.png"></Image>
+        </Border>
+        <Label>Для того щоб добавити власне жителя ви повинні скористатись кнопкою "Додати відвідувачів"</Label>
+        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left">
+          <Image Source="C:\Users\User\source\repos\CursovaProject\CursovaProject\GuidebookImages\addResidentButton.png"></Image>
+        </Border>
+        <Label>Після нажимання цієї кнопки ви побачите відпвідне меню де вам буде потрібно ввести необхідні дані про відвідувача</Label>
+        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left">
+          <Image Source="C:\Users\User\source\repos\CursovaProject\CursovaProject\GuidebookImages\addResidentItself.png"></Image>
+        </Border>
+        <Label>Після того як ви додали відвідувача його інформація буде відображатися в таблиці нижче</Label>
+        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left">
+          <Image Source="C:\Users\User\source\repos\CursovaProject\CursovaProject\GuidebookImages\addedResident.png"></Image>
+        </Border>
+        <Label FontSize="20" FontWeight="Bold" Content="4. Видалення жителів"/>
+        <Label>Для того щоб видалити відвідувачів вам потрібно скористатися кнопкою "Видалити відвідувачів"</Label>
+        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left">
+          <Image Source="C:\Users\User\source\repos\CursovaProject\CursovaProject\GuidebookImages\deleteResident.png"></Image>
+        </Border>
+        <Label>Після цього вам відриється вікно де у вас буде можливість вибрати певного відвідувача і натиснути на кнопку "Видалити відвідувача" для його видалення</Label>
+        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left">
+          <Image Source="C:\Users\User\source\repos\CursovaProject\CursovaProject\GuidebookImages\removeConcrete.png"></Image>
+        </Border>
+        <Label FontSize="20" FontWeight="Bold" Content="5. Видалення кімнати загалом"/>
+        <Label>Також у вас є можливість повністю звільнити кімнату натиснувши на кнопку "Звільнити кімнату"</Label>
+        <Border>
+          <Image Source="C:\Users\User\source\repos\CursovaProject\CursovaProject\GuidebookImages\deleteRoom.png"></Image>
+        </Border>
+        <Label FontSize="20" FontWeight="Bold" Content="6. Редагування інформації про готель"/>
+        <Label>Також ви можете редагувати дні про готель а саме: Назва готелю, К-сть кімнат певного типу та Ціна за номер певного типу</Label>
+        <Border>
+          <Image Source="C:\Users\User\source\repos\CursovaProject\CursovaProject\GuidebookImages\editData.png"></Image>
+        </Border>
+        <Label FontSize="20" FontWeight="Bold" Content="7. Фільтрація кімнат"/>
+        <Label>Ви можете відсортувати кімнати за певним ключем натиснувши кнопку "Відфільтрувати по ключу"</Label>
+        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left">
+          <Image Source="C:\Users\User\source\repos\CursovaProject\CursovaProject\GuidebookImages\filterData.png"></Image>
+        </Border>
+        <Label>При натисканні на кнопку вас відриється вікно де ви зможете вибрати ключ по якому ви хочете відсортувати кімнати в готелі</Label>
+        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left">
+          <Image Source="C:\Users\User\source\repos\CursovaProject\CursovaProject\GuidebookImages\filterItself.png"></Image>
+        </Border>
+        <Label FontSize="20" FontWeight="Bold" Content="7. Фільтрація кімнат"/>
+        <Label>Також ви можете відсортувати кімнати за певним ключем натиснувши на кнопку "Відсортувати по певному ключу"</Label>
+        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left">
+          <Image Source="C:\Users\User\source\repos\CursovaProject\CursovaProject\GuidebookImages\saveData.png">
+          </Image>
+        </Border>
+        <Label>Після натисканні кнопки вам буде відкрите вікно де ви зможете вибрати ключ по якому ви хочете відсортувати кімнати</Label>
+        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left">
+          <Image Source="C:\Users\User\source\repos\CursovaProject\CursovaProject\GuidebookImages\sortItself.png">
           </Image>
         </Border>
       </StackPanel>

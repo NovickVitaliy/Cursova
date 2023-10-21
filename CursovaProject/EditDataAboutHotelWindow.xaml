@@ -1,0 +1,25 @@
+﻿<Window x:Class="CursovaProject.EditDataAboutHotel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CursovaProject"
+        mc:Ignorable="d"
+        Title="Змінити дані про готель" Height="250" Width="250"
+        WindowStartupLocation="CenterScreen" Background="#7895CB">
+  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
+    <Label></Label>
+    <ComboBox Padding="5" Margin="5" Name="cbEditOption" SelectionChanged="cbEditOption_SelectionChanged">
+      <ComboBoxItem>Назва готелю</ComboBoxItem>
+      <ComboBoxItem>Кількість кімнат</ComboBoxItem>
+      <ComboBoxItem>Ціна за номер</ComboBoxItem>
+    </ComboBox>
+    <ComboBox Padding="5" Margin="5" Name="cbRoomType" Visibility="Collapsed">
+      <ComboBoxItem>Стандартний номер</ComboBoxItem>
+      <ComboBoxItem>Покращений номер</ComboBoxItem>
+      <ComboBoxItem>Президентський номер</ComboBoxItem>
+    </ComboBox>
+    <TextBox Padding="5" Margin="5" Width="100" x:Name="tbNewValue"></TextBox>
+    <Button Padding="5" Margin="5" Click="Button_Click">Змінити</Button>
+  </StackPanel>
+</Window>
