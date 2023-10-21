@@ -72,11 +72,20 @@
     <Compile Include="DeleteResidentWindow.xaml.cs">
       <DependentUpon>DeleteResidentWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditDataAboutHotel.xaml.cs">
+      <DependentUpon>EditDataAboutHotel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditDatesWindow.xaml.cs">
+      <DependentUpon>EditDatesWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FilterRoomsWindow.xaml.cs">
       <DependentUpon>FilterRoomsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="FindInfoByRoomNumber.xaml.cs">
       <DependentUpon>FindInfoByRoomNumber.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GuideBookWindow.xaml.cs">
+      <DependentUpon>GuideBookWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MakeDatabaseBasedOnKeyWindow.xaml.cs">
       <DependentUpon>MakeDatabaseBasedOnKeyWindow.xaml</DependentUpon>
@@ -84,6 +93,9 @@
     <Compile Include="Person.cs" />
     <Compile Include="RegisterResidentWindow.xaml.cs">
       <DependentUpon>RegisterResidentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RemoveConcreteResident.xaml.cs">
+      <DependentUpon>RemoveConcreteResident.xaml</DependentUpon>
     </Compile>
     <Compile Include="RoomFactories\PresidentRoomFactory.cs" />
     <Compile Include="RoomFactories\RoomFactory.cs" />
@@ -100,6 +112,7 @@
     <Compile Include="TotalNumbersOfResidentsInSpecificRoomType.xaml.cs">
       <DependentUpon>TotalNumbersOfResidentsInSpecificRoomType.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Useful Extensions\LINQExtensions.cs" />
     <Page Include="AddHotelsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -116,11 +129,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EditDataAboutHotel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditDatesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FilterRoomsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FindInfoByRoomNumber.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GuideBookWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -150,6 +175,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RegisterResidentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RemoveConcreteResident.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -191,6 +220,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="GuidebookImages\" />
     <Folder Include="HotelsDatabases\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

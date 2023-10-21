@@ -2,7 +2,6 @@ C:\Users\User\source\repos\CursovaProject\CursovaProject\bin\Debug\CursovaProjec
 C:\Users\User\source\repos\CursovaProject\CursovaProject\bin\Debug\CursovaProject.exe
 C:\Users\User\source\repos\CursovaProject\CursovaProject\bin\Debug\CursovaProject.pdb
 C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\CursovaProject.csproj.AssemblyReference.cache
-C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\CursovaProject.csproj.SuggestedBindingRedirects.cache
 C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\MainWindow.g.cs
 C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\App.g.cs
 C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\CursovaProject_MarkupCompile.cache
@@ -41,3 +40,11 @@ C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\FilterRoomsWi
 C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\FilterRoomsWindow.baml
 C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\MakeDatabaseBasedOnKeyWindow.g.cs
 C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\MakeDatabaseBasedOnKeyWindow.baml
+C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\EditDataAboutHotel.g.cs
+C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\EditDataAboutHotel.baml
+C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\RemoveConcreteResident.g.cs
+C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\RemoveConcreteResident.baml
+C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\EditDatesWindow.g.cs
+C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\EditDatesWindow.baml
+C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\GuideBookWindow.g.cs
+C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\GuideBookWindow.baml

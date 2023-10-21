@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\User\source\repos\CursovaProject\CursovaProject\App.xaml
-11-1207598736
+15930947081
 
-29-109509202
-18-1796552572
-AddHotelsWindow.xaml;AddResidentWindow.xaml;DeleteHotelButton.xaml;DeleteResidentWindow.xaml;FilterRoomsWindow.xaml;FindInfoByRoomNumber.xaml;MainWindow.xaml;MakeDatabaseBasedOnKeyWindow.xaml;RegisterResidentWindow.xaml;SortByKeyWindow.xaml;TotalNumbersOfResidentsInSpecificRoomType.xaml;
+34927971075
+181681431035
+AddHotelsWindow.xaml;AddResidentWindow.xaml;DeleteHotelButton.xaml;DeleteResidentWindow.xaml;EditDataAboutHotel.xaml;EditDatesWindow.xaml;FilterRoomsWindow.xaml;FindInfoByRoomNumber.xaml;GuideBookWindow.xaml;MainWindow.xaml;MakeDatabaseBasedOnKeyWindow.xaml;RegisterResidentWindow.xaml;RemoveConcreteResident.xaml;SortByKeyWindow.xaml;TotalNumbersOfResidentsInSpecificRoomType.xaml;
 
-True
+False
 

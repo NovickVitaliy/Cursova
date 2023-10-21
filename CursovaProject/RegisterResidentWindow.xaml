@@ -20,6 +20,22 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <Button Padding="5" Margin="5" Width="165" Name="RegisterRoomButton_OnClick" Click="RegisterRoomButton_OnClick_Click">Зареєструвати відвідувачів</Button>
+    <Grid HorizontalAlignment="Center">
+      <Grid.RowDefinitions>
+        <RowDefinition></RowDefinition>
+        <RowDefinition></RowDefinition>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition></ColumnDefinition>
+        <ColumnDefinition></ColumnDefinition>
+      </Grid.ColumnDefinitions>
+
+      <Label Grid.Column="0" HorizontalAlignment="Right">Дата заїзду:</Label>
+      <DatePicker Grid.Column="1" Name="dpDateIn"></DatePicker>
+
+      <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right">Дата виїзду:</Label>
+      <DatePicker Grid.Row="1" Grid.Column="1" x:Name="dpDateOut"></DatePicker>
+    </Grid>
+        <Button Padding="5" Margin="5" Width="165" Name="RegisterRoomButton_OnClick" Click="RegisterRoomButton_OnClick_Click">Зареєструвати кімнату</Button>
     </StackPanel>
 </Window>

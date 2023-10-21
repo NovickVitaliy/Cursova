@@ -1,2 +1,0 @@
-roomType:SuperiorRoom
-roomNumber:4

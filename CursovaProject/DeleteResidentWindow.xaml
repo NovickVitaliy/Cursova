@@ -10,7 +10,7 @@
         ResizeMode="NoResize"
         Background="#7895CB">
     <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-        <TextBlock HorizontalAlignment="Center">Виберіть номер який потрібно видалити</TextBlock>
+        <TextBlock HorizontalAlignment="Center">Виберіть номер який потрібно звільнити</TextBlock>
         <ComboBox Width="150" Margin="5" Name="RoomsComboBox">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
@@ -18,6 +18,6 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <Button Width="150" Padding="5" Click="Button_Click">Видалити номер</Button>
+        <Button Width="150" Padding="5" Click="Button_Click">Звільнити номер</Button>
     </StackPanel>
 </Window>

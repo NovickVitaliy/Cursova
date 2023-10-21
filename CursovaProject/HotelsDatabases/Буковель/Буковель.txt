@@ -1,0 +1,10 @@
+name:Буковель
+standartRooms:5
+superiorRooms:5
+presidetnRooms:5
+priceStandartRoom:1000
+priceSuperiorRoom:5000
+pricePresidentRoom:15000
+availableStandartRooms:5
+availableSuperiorRooms:5
+availablePresidentRooms:5

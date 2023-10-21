@@ -1,0 +1,33 @@
+﻿<Window x:Class="CursovaProject.RemoveConcreteResident"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CursovaProject"
+        mc:Ignorable="d"
+        Title="RemoveConcreteResident" Height="270" Width="300"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#7895CB">
+  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Margin="5">
+    <Label>Виберіть відвідувача якого потрібно видалити</Label>
+    <ComboBox Margin="5" Name="ResidentsComboBox">
+      <ComboBox.ItemTemplate>
+        <DataTemplate>
+          <StackPanel Orientation="Horizontal">
+            <TextBlock x:Name="NameOfPerson" Text="{Binding Path=Name}"></TextBlock>
+            <TextBlock Text=" "></TextBlock>
+            <TextBlock x:Name="SecondNameOfPerson" Text="{Binding Path=SecondName}"></TextBlock>
+            <TextBlock Text=" "></TextBlock>
+            <TextBlock x:Name="SurnameOfPerson" Text="{Binding Path=Surname}"></TextBlock>
+            <TextBlock Text=" "></TextBlock>
+            <TextBlock x:Name="PassportSeries" Visibility="Collapsed" Text="{Binding Path=PassortSeries}"></TextBlock>
+            <TextBlock Text=" "></TextBlock>
+            <TextBlock x:Name="PassportNumber" Visibility="Collapsed" Text="{Binding Path=PassportNumber}"></TextBlock>
+          </StackPanel>
+        </DataTemplate>
+      </ComboBox.ItemTemplate>
+    </ComboBox>
+    <Button Margin="5" Name="DeleteConcreteResident" Click="DeleteConcreteResident_Click">Видалити відвідувача</Button>
+  </StackPanel>
+</Window>

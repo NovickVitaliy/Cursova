@@ -7,157 +7,177 @@
         mc:Ignorable="d"
         Title="Система управлі" Height="450" Width="1100"
         WindowStartupLocation="CenterScreen">
-    <Grid Background="#7895CB">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.25*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Border Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="1"></Border>
-        <ScrollViewer>
-                    <StackPanel Grid.Row="0" Grid.Column="0">
-            <StackPanel.Resources>
-                <Style TargetType="Button">
-                    <Setter Property="Margin" Value="5 5 5 5"></Setter>
-                    <Setter Property="Background" Value="#A0BFE0"></Setter>
-                    <Setter Property="Padding" Value="5"></Setter>
-                </Style>
-                <Style TargetType="Separator">
-                    <Setter Property="BorderBrush" Value="Black"></Setter>
-                    <Setter Property="BorderThickness" Value="1"></Setter>
-                </Style>
-            </StackPanel.Resources>
-            <Label HorizontalAlignment="Center">Додавайте готелі</Label>
-            <Separator/>
-            <Button x:Name="AddHotelButton" Click="AddHotelButton_Click"> Додати готель </Button>
-            <Button x:Name="DeleteHotelButton" Click="DeleteHotelButton_Click">Видалити готель</Button>
-                <Separator/>
-                <ItemsControl x:Name="hotelControl">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Button Content="{Binding Name}" Margin="10" Height="40" Background="#C5DFF8" Click="ChooseHotelButton_OnClick" ></Button>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+  <Grid Background="#7895CB">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="0.25*"></ColumnDefinition>
+      <ColumnDefinition Width="*"></ColumnDefinition>
+    </Grid.ColumnDefinitions>
+    <Border Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="1"></Border>
+    <ScrollViewer>
+      <StackPanel Grid.Row="0" Grid.Column="0">
+        <StackPanel.Resources>
+          <Style TargetType="Button">
+            <Setter Property="Margin" Value="5 5 5 5"></Setter>
+            <Setter Property="Background" Value="#A0BFE0"></Setter>
+            <Setter Property="Padding" Value="5"></Setter>
+          </Style>
+          <Style TargetType="Separator">
+            <Setter Property="BorderBrush" Value="Black"></Setter>
+            <Setter Property="BorderThickness" Value="1"></Setter>
+          </Style>
+        </StackPanel.Resources>
+        <Button x:Name="GuideBookButton" Click="GuideBookButton_Click">Посібник користувача</Button>
+        <Label HorizontalAlignment="Center">Додавайте готелі</Label>
+        <Separator/>
+        <Button x:Name="AddHotelButton" Click="AddHotelButton_Click">Додати готель</Button>
+        <Button x:Name="DeleteHotelButton" Click="DeleteHotelButton_Click">Видалити готель</Button>
+        <Separator/>
+        <ItemsControl x:Name="hotelControl">
+          <ItemsControl.ItemTemplate>
+            <DataTemplate>
+              <Button Content="{Binding Name}" Margin="10" Height="40" Background="#C5DFF8" Click="ChooseHotelButton_OnClick" ></Button>
+            </DataTemplate>
+          </ItemsControl.ItemTemplate>
+        </ItemsControl>
+      </StackPanel>
+    </ScrollViewer>
+    <TextBlock x:Name="ChooseHotelPrompt" Grid.Column="1" Visibility="Collapsed" TextAlignment="Center" FontSize="30">Для початку роботи виберіть готель в лівій колонці</TextBlock>
+    <ScrollViewer x:Name="MainScrollViewer" Grid.Column="1" Visibility="Visible">
+      <StackPanel Name="MainStackPanel" Grid.Column="1">
+        <ItemsControl x:Name="HotelDetailsItemsControl" HorizontalAlignment="Center">
+          <StackPanel Orientation="Horizontal">
+            <TextBlock>Наразі ви оперуєте готелем:</TextBlock>
+            <TextBlock Name="HotelTextBlock" TextAlignment="Center" FontWeight="Bold" Text="{Binding Name}"></TextBlock>
+          </StackPanel>
+          <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+              <TextBlock>Кількість стандартних номерів:</TextBlock>
+              <TextBlock Name="StandartRoomTextBlock" FontWeight="Bold" Text="{Binding NumberOfStandartRooms}" ></TextBlock>
+              <TextBlock>Доступно:</TextBlock>
+              <TextBlock Name="AvailableStandartRoomTextBlock" Text="{Binding AvailableStandartRooms, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
             </StackPanel>
-        </ScrollViewer>
-        <TextBlock x:Name="ChooseHotelPrompt" Grid.Column="1" Visibility="Collapsed" TextAlignment="Center" FontSize="30">Для початку роботи виберіть готель в лівій колонці</TextBlock>
-        <ScrollViewer x:Name="MainScrollViewer" Grid.Column="1" Visibility="Visible">
-            <StackPanel Name="MainStackPanel" Grid.Column="1">
-                <ItemsControl x:Name="HotelDetailsItemsControl" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+              <TextBlock>Кількість покращених номерів:</TextBlock>
+              <TextBlock Name="SuperiorRoomTextBlock" FontWeight="Bold" Text="{Binding NumberOfSuperiorRooms}"></TextBlock>
+              <TextBlock>Доступно:</TextBlock>
+              <TextBlock Name="AvailableSuperiorRoomTextBlock" Text="{Binding AvailableSuperiorRooms, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+              <TextBlock>Кількість президентських номерів:</TextBlock>
+              <TextBlock Name="PresidentRoomTextBlock" FontWeight="Bold" Text="{Binding NumberOfPresidentRooms}"></TextBlock>
+              <TextBlock>Доступно:</TextBlock>
+              <TextBlock Name="AvailablePresidentRoomTextBlock" Text="{Binding AvailablePresidentRooms, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+            </StackPanel>
+          </StackPanel>
+        </ItemsControl>
+        <Separator BorderBrush="Black" BorderThickness="1"></Separator>
+        <WrapPanel HorizontalAlignment="Center" Name="ControlPanel" Orientation="Horizontal">
+          <WrapPanel.Resources>
+            <Style TargetType="Button">
+              <Setter Property="Margin" Value="5"></Setter>
+              <Setter Property="Background" Value="#A0BFE0"></Setter>
+              <Setter Property="Padding" Value="5"></Setter>
+              <Setter Property="Width" Value="95"></Setter>
+            </Style>
+            <Style TargetType="TextBlock">
+              <Setter Property="TextWrapping" Value="WrapWithOverflow"></Setter>
+            </Style>
+          </WrapPanel.Resources>
+          <Button Name="RegisterResidentButton" Click="RegisterResidentButton_Click" Width="100">
+            <TextBlock>Зареєструвати кімнату</TextBlock>
+          </Button>
+          <Button Name="DeleteResidenButton" Click="DeleteResidenButton_Click">
+            <TextBlock>Звільнити кімнату</TextBlock>
+          </Button>
+          <Button x:Name="ChangeDataAboutHotelButton" Click="ChangeDataAboutHotelButton_Click">
+            <TextBlock>Змінити дані про готель</TextBlock>
+          </Button>
+          <Button x:Name="FindInfoByRoomNumber" Click="FindInfoByRoomNumber_Click">
+            <TextBlock>Знайти інформацію по номеру</TextBlock>
+          </Button>
+          <Button x:Name="SortByKeyButton" Click="SortByKeyButton_Click">
+            <TextBlock>Відсортувати по певному ключу</TextBlock>
+          </Button>
+          <Button x:Name="GetInfoButton" Click="GetInfoButton_Click" >
+            <TextBlock>Отримати інформацію про готель</TextBlock>
+          </Button>
+          <Button x:Name="TotalNumberOfResidentsInRoomOfSpecificType" Click="TotalNumberOfResidentsInRoomOfSpecificType_Click">
+            <TextBlock>К-сть відвідувачів в номері певного типу</TextBlock>
+          </Button>
+          <Button x:Name="FilterRoomsButton" Click="FilterRoomsButton_Click">
+            <TextBlock>Відфільтрувати по ключу</TextBlock>
+          </Button>
+          <Button Name="MakeDatabaseBasedOnKey" Click="MakeDatabaseBasedOnKey_Click">
+            <TextBlock>Сформувати базу даних по ключу</TextBlock>
+          </Button>
+        </WrapPanel>
+        <Separator BorderBrush="Black" BorderThickness="1"></Separator>
+        <StackPanel>
+          <ItemsControl Name="HotelRoomsItemsControl">
+            <ItemsControl.ItemTemplate>
+              <DataTemplate>
+                <Expander Tag="{Binding RoomNumber}" Expanded="Expander_Expanded">
+                  <Expander.Header>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock>Наразі ви оперуєте готелем:</TextBlock>
-                        <TextBlock Name="HotelTextBlock" TextAlignment="Center" FontWeight="Bold" Text="{Binding Name}"></TextBlock>
+                      <TextBlock>Кімната номер:</TextBlock>
+                      <TextBlock FontWeight="Bold" Text="{Binding RoomNumber}"></TextBlock>
+                      <TextBlock>Тип кімнати:</TextBlock>
+                      <TextBlock FontWeight="Bold" Text="{Binding RoomType}"></TextBlock>
                     </StackPanel>
-                    <StackPanel Orientation="Vertical">
+                  </Expander.Header>
+                  <StackPanel Orientation="Vertical">
+                    <Grid>
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition Width="7*"></ColumnDefinition>
+                      </Grid.ColumnDefinitions>
+                      <StackPanel Grid.Column="0" Orientation="Vertical">
+                        <TextBlock>Дата заїзду:</TextBlock>
+                        <TextBlock Text="{Binding DateOfCheckIn}"></TextBlock>
+                        <TextBlock>Дата виїзду:</TextBlock>
+                        <TextBlock Text="{Binding DateOfCheckOut}"></TextBlock>
+                        <Button x:Name="EditDatesButton" Click="EditDatesButton_Click" Padding="5" Margin="5" Tag="{Binding RoomNumber}">Редагувати дати заселення та виїзду</Button>
+                      </StackPanel>
+                      <StackPanel Grid.Column="1" HorizontalAlignment="Left">
+                        <Button x:Name="SumPerDateButton" Tag="{Binding RoomNumber}" Click="SumPerDateButton_Click" Margin="5" Padding="5">Знайти суму яка буде виплачена за весь період проживання</Button>
+                      </StackPanel>
+                    </Grid>
+                    <StackPanel x:Name="RoomNavbar" Tag="{Binding RoomNumber}" Orientation="Horizontal" HorizontalAlignment="Left">
+                      <Button Padding="5" Margin="5" Tag="{Binding UniqueRoomNumber}" Click="AddResidentButton_Click">
+                        Додати відвідувачів
+                      </Button>
+                      <Button Padding="5" Margin="5" Tag="{Binding UniqueRoomNumber}" Click="DeleteConcreteResidentButton_Click">
+                        Видалити відвідувачів
+                      </Button>
+                      <WrapPanel VerticalAlignment="Center" Orientation="Vertical">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock>Кількість стандартних номерів:</TextBlock>
-                            <TextBlock Name="StandartRoomTextBlock" FontWeight="Bold" Text="{Binding NumberOfStandartRooms}" ></TextBlock>
-                            <TextBlock>Доступно:</TextBlock>
-                            <TextBlock Name="AvailableStandartRoomTextBlock" Text="{Binding AvailableStandartRooms, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                          <TextBlock>Вартість номеру за ніч за одну людину:</TextBlock>
+                          <TextBlock Text="{Binding PricePerOnePersonPerDay}"></TextBlock>
+                          <TextBlock>грн.</TextBlock>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock>Кількість покращених номерів:</TextBlock>
-                            <TextBlock Name="SuperiorRoomTextBlock" FontWeight="Bold" Text="{Binding NumberOfSuperiorRooms}"></TextBlock>
-                            <TextBlock>Доступно:</TextBlock>
-                            <TextBlock Name="AvailableSuperiorRoomTextBlock" Text="{Binding AvailableSuperiorRooms, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                          <TextBlock>Загальна вартість разом зі зборами:</TextBlock>
+                          <TextBlock Text="{Binding GetTotalPrice}"></TextBlock>
+                          <TextBlock>грн.</TextBlock>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock>Кількість президентських номерів:</TextBlock>
-                            <TextBlock Name="PresidentRoomTextBlock" FontWeight="Bold" Text="{Binding NumberOfPresidentRooms}"></TextBlock>
-                            <TextBlock>Доступно:</TextBlock>
-                            <TextBlock Name="AvailablePresidentRoomTextBlock" Text="{Binding AvailablePresidentRooms, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-                        </StackPanel>
+                      </WrapPanel>
                     </StackPanel>
-                </ItemsControl>
-                <Separator BorderBrush="Black" BorderThickness="1"></Separator>
-                <WrapPanel HorizontalAlignment="Center" Name="ControlPanel" Orientation="Horizontal">
-                    <WrapPanel.Resources>
-                        <Style TargetType="Button">
-                            <Setter Property="Margin" Value="5"></Setter>
-                            <Setter Property="Background" Value="#A0BFE0"></Setter>
-                            <Setter Property="Padding" Value="5"></Setter>
-                            <Setter Property="Width" Value="95"></Setter>
-                        </Style>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="TextWrapping" Value="WrapWithOverflow"></Setter>
-                        </Style>
-                    </WrapPanel.Resources>
-                    <Button Name="RegisterResidentButton" Click="RegisterResidentButton_Click" Width="100">
-                        <TextBlock>Зареєструвати відвідувачів</TextBlock>
-                    </Button>
-                    <Button Name="DeleteResidenButton" Click="DeleteResidenButton_Click">
-                        <TextBlock>Видалити відвідувачів</TextBlock>
-                    </Button>
-                    <Button x:Name="ChangeDataAboutHotelButton" Click="ChangeDataAboutHotelButton_Click">
-                        <TextBlock>Змінити дані про готель</TextBlock>
-                    </Button>
-                    <Button x:Name="FindInfoByRoomNumber" Click="FindInfoByRoomNumber_Click">
-                        <TextBlock>Знайти інформацію по номеру</TextBlock>
-                    </Button>
-                    <Button x:Name="SortByKeyButton" Click="SortByKeyButton_Click">
-                        <TextBlock>Відсортувати по певному ключу</TextBlock>
-                    </Button>
-                    <Button x:Name="GetInfoButton" Click="GetInfoButton_Click" >
-                        <TextBlock>Отримати інформацію про готель</TextBlock>
-                    </Button>
-                    <Button x:Name="TotalNumberOfResidentsInRoomOfSpecificType" Click="TotalNumberOfResidentsInRoomOfSpecificType_Click">
-                        <TextBlock>К-сть відвідувачів в номері певного типу</TextBlock>
-                    </Button>
-                    <Button x:Name="FilterRoomsButton" Click="FilterRoomsButton_Click">
-                        <TextBlock>Відфільтрувати по ключу</TextBlock>
-                    </Button>
-                    <Button Name="MakeDatabaseBasedOnKey" Click="MakeDatabaseBasedOnKey_Click">
-                        <TextBlock>Сформувати базу даних по ключу</TextBlock>
-                    </Button>
-                </WrapPanel>
-                <Separator BorderBrush="Black" BorderThickness="1"></Separator>
-                <StackPanel>
-                    <ItemsControl Name="HotelRoomsItemsControl">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Expander Tag="{Binding RoomNumber}" Expanded="Expander_Expanded">
-                                    <Expander.Header>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock>Кімната номер:</TextBlock>
-                                            <TextBlock FontWeight="Bold" Text="{Binding RoomNumber}"></TextBlock>
-                                            <TextBlock>Тип кімнати:</TextBlock>
-                                            <TextBlock FontWeight="Bold" Text="{Binding RoomType}"></TextBlock>
-                                        </StackPanel>
-                                    </Expander.Header>
-                                    <StackPanel Orientation="Vertical">
-                                        <StackPanel x:Name="RoomNavbar" Tag="{Binding RoomNumber}" Orientation="Horizontal" HorizontalAlignment="Left">
-                                            <Button Padding="5" Margin="5" Tag="{Binding UniqueRoomNumber}" Click="AddResidentButton_Click">
-                                                Додати відвідувачів
-                                            </Button>
-                                            <WrapPanel VerticalAlignment="Center" Orientation="Vertical">
-                                                <StackPanel Orientation="Horizontal">
-                                                    <TextBlock>Вартість номеру за ніч за одну людину:</TextBlock>
-                                                    <TextBlock Text="{Binding PricePerOnePersonPerDay}"></TextBlock>
-                                                    <TextBlock>грн.</TextBlock>
-                                                </StackPanel>
-                                                <StackPanel Orientation="Horizontal">
-                                                    <TextBlock>Загальна вартість разом зі зборами: </TextBlock>
-                                                    <TextBlock Text="{Binding GetTotalPrice}"></TextBlock>
-                                                    <TextBlock>грн.</TextBlock>
-                                                </StackPanel>
-                                            </WrapPanel>
-                                        </StackPanel>
-                                        <DataGrid Name="RoomDataGrid" AutoGenerateColumns="False">
-                                            <DataGrid.Columns>
-                                                <DataGridTextColumn Header="Ім'я" Binding="{Binding Path=Name}"/>
-                                                <DataGridTextColumn Header="Прізвище" Binding="{Binding Path=Surname}"/>
-                                                <DataGridTextColumn Header="По-батькові" Binding="{Binding Path=SecondName}"/>
-                                                <DataGridTextColumn Header="Серія паспорта" Binding="{Binding Path=PassortSeries}"/>
-                                                <DataGridTextColumn Header="Номер паспорта" Binding="{Binding Path=PassportNumber}"/>
-                                            </DataGrid.Columns>
-                                        </DataGrid>
-                                    </StackPanel>
-                                </Expander>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </StackPanel>
-            </StackPanel>
-        </ScrollViewer>
-    </Grid>
+                    <DataGrid Name="RoomDataGrid" AutoGenerateColumns="False">
+                      <DataGrid.Columns>
+                        <DataGridTextColumn Header="Ім'я" Binding="{Binding Path=Name}"/>
+                        <DataGridTextColumn Header="Прізвище" Binding="{Binding Path=Surname}"/>
+                        <DataGridTextColumn Header="По-батькові" Binding="{Binding Path=SecondName}"/>
+                        <DataGridTextColumn Header="Серія паспорта" Binding="{Binding Path=PassortSeries}"/>
+                        <DataGridTextColumn Header="Номер паспорта" Binding="{Binding Path=PassportNumber}"/>
+                      </DataGrid.Columns>
+                    </DataGrid>
+                  </StackPanel>
+                </Expander>
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
+        </StackPanel>
+      </StackPanel>
+    </ScrollViewer>
+  </Grid>
 </Window>

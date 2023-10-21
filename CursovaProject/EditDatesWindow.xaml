@@ -1,0 +1,20 @@
+﻿<Window x:Class="CursovaProject.EditDatesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CursovaProject"
+        mc:Ignorable="d"
+        Title="EditDatesWindow" Height="270" Width="300"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#7895CB">
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Label Margin="5">Змініть потрібні вам дати</Label>
+    <Label>Дата заїзду:</Label>
+    <DatePicker Name="dpDateIn"></DatePicker>
+    <Label>Дата виїзду:</Label>
+    <DatePicker Name="dpDateOut"></DatePicker>
+    <Button Margin="5" Padding="5" Name="EditDateButton" Click="EditDateButton_Click">Змінити</Button>
+    </StackPanel>
+</Window>
