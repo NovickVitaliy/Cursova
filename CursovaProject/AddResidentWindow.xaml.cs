@@ -1,18 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
 namespace CursovaProject
 {
   /// <summary>
@@ -32,7 +19,6 @@ namespace CursovaProject
       _databaseManager = databaseManager;
       _mainWindow = mainWindow;
     }
-
     private void AddResidentButton_Click(object sender, RoutedEventArgs e)
     {
       try
@@ -42,23 +28,25 @@ namespace CursovaProject
         string secondName = tbSecondName.Text;
         int passportSeries = Convert.ToInt32(tbPassportSeries.Text);
         int passportNumber = Convert.ToInt32(tbPassportNumber.Text);
-
+        int age = Convert.ToInt32(tbAge.Text);
+        if (age <= 0)
+        {
+          throw new NegativeValueException();
+        }
         if (name == string.Empty || surname == string.Empty || secondName == string.Empty)
         {
           throw new ArgumentException();
         }
-
         if (passportNumber <= 0 || passportSeries <= 0)
         {
-          throw new NegativeValueException("Значення номера паспорт або серії не може бути від'ємним або рівними нулю.");
+          throw new NegativeValueException();
         }
-
-        Person person = new Person(name, secondName, surname, passportSeries, passportNumber);
+        Person person = new Person(name, secondName, surname, age, passportSeries, passportNumber);
         _databaseManager.SaveResident(_currentHotel.Name, _roomNumber, person);
         _currentHotel.GetHotelRoom(_roomNumber).RegisterResident(person);
         _mainWindow.HotelDetailsItemsControl.Items.Refresh();
         _mainWindow.HotelRoomsItemsControl.Items.Refresh();
-
+        MessageBox.Show("Реєстрація відвідувача пройшла успішно", "Реєстрація відвідувача", MessageBoxButton.OK, MessageBoxImage.Information);
         Close();
       }
       catch (ArgumentException)
@@ -67,11 +55,15 @@ namespace CursovaProject
       }
       catch (FormatException)
       {
-        MessageBox.Show($"Значення номера або серії паспорта було введено не числовим значенням.");
+        MessageBox.Show($"Значення віку, номера або серії паспорта було введено не числовим значенням.");
       }
       catch (OverflowException)
       {
         MessageBox.Show("Неприпустиме значення для серії паспорта або номера");
+      }
+      catch (NegativeValueException)
+      {
+        MessageBox.Show("Значення віку, номера паспорт або серії не може бути від'ємним або рівними нулю.");
       }
     }
   }

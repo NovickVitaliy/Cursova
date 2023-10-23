@@ -40,11 +40,11 @@ C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\GuideBookWind
 C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\GuideBookWindow.baml
 C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\DeleteHotelWindow.g.cs
 C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\DeleteHotelWindow.baml
-C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\FreeHotelRoom.g.cs
 C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\EditDataAboutHotelWindow.g.cs
 C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\RemoveConcreteResidentWindow.g.cs
 C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\TotalNumbersOfResidentsInSpecificRoomTypeWindow.g.cs
-C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\FreeHotelRoom.baml
 C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\EditDataAboutHotelWindow.baml
 C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\RemoveConcreteResidentWindow.baml
 C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\TotalNumbersOfResidentsInSpecificRoomTypeWindow.baml
+C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\FreeHotelRoomWindow.g.cs
+C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\FreeHotelRoomWindow.baml

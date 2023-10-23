@@ -6,10 +6,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Windows.Controls;
 using System.Windows.Forms;
-using System.Xml.Linq;
-
 namespace CursovaProject
 {
   public class Hotel : INotifyPropertyChanged
@@ -28,12 +25,9 @@ namespace CursovaProject
     private int _pricePresidentRooms;
     private int _totalAmountOfRoom;
     private List<int> _roomNumbers;
-
-
+    private float _totalIncome;
     ObservableCollection<HotelRoom> _rooms;
-
     public event PropertyChangedEventHandler PropertyChanged;
-
     public Hotel(string name, int numberOfStandartRooms, int numberOfSuperiorRooms, int numberOfPresidentRooms,
             int priceStandartRoom, int priceSuperiorRoom, int pricePresidentRoom)
     {
@@ -58,29 +52,22 @@ namespace CursovaProject
                 "President Room"
       };
     }
-
     public string Name { get => _name; set { _name = value; OnPropertyChanged(); } }
     public int NumberOfStandartRooms { get => _numberOfStandartRooms; set { _numberOfStandartRooms = value; OnPropertyChanged(); } }
     public int NumberOfSuperiorRooms { get => _numberOfSuperiorRooms;  set { _numberOfSuperiorRooms = value; OnPropertyChanged(); } }
     public int NumberOfPresidentRooms { get => _numberOfPresidentRooms;  set { _numberOfPresidentRooms = value; OnPropertyChanged(); } }
-
     public ObservableCollection<HotelRoom> HotelRooms { get => _rooms;  set { _rooms = value; OnPropertyChanged(); } }
-
-
-
     public int AvailableStandartRooms { get => _numberOfAvailableStandartRooms; set { _numberOfAvailableStandartRooms = value; OnPropertyChanged(); } }
-
     public int AvailableSuperiorRooms { get => _numberOfAvailableSuperiorRooms; set { _numberOfAvailableSuperiorRooms = value; OnPropertyChanged(); } }
     public int AvailablePresidentRooms { get => _numberOfAvailablePresidentRooms; set { _numberOfAvailablePresidentRooms = value; OnPropertyChanged(); } }
     public int PriceStandartRoom { get => _priceStandartRoom; set { _priceStandartRoom = value; OnPropertyChanged(); } }
     public int PriceSuperiorRoom { get => _priceSuperiorRooms; set { _priceSuperiorRooms = value; OnPropertyChanged(); } }
     public int PricePresidentRoom { get => _pricePresidentRooms; set { _pricePresidentRooms = value; OnPropertyChanged(); } }
-
+    public float TotalIncome { get => _totalIncome; set {  _totalIncome = value; OnPropertyChanged();} }
     public HotelRoom GetHotelRoom(int number)
     {
       return HotelRooms.Where(hr => hr.RoomNumber == number).FirstOrDefault();
     }
-
     public string[] RoomTypes
     {
       get
@@ -95,13 +82,11 @@ namespace CursovaProject
           $" К-сть покращених кімнат: {NumberOfSuperiorRooms}, Ціна за одну людину за ніч: {PriceSuperiorRoom}\n" +
           $" К-сть президентських кімнат: {NumberOfPresidentRooms}, Ціна за одну людину за ніч: {PricePresidentRoom}";
     }
-
     public override string ToString()
     {
       return Name;
     }
-
-    public void RegisterRoom(RoomTypes roomType, DateTime dateIn, DateTime dateOut, int roomNumber = -1)
+    public HotelRoom RegisterRoom(RoomTypes roomType, DateTime dateIn, DateTime dateOut, int roomNumber = -1)
     {
       DecreaseAvailableRooms(roomType);
       _roomFactory = GetFactory(roomType);
@@ -112,8 +97,8 @@ namespace CursovaProject
       roomToAdd.DateOfCheckIn = dateIn;
       roomToAdd.DateOfCheckOut = dateOut;
       _rooms.Add(roomToAdd);
+      return roomToAdd;
     }
-
     private IRoomFactory GetFactory(RoomTypes roomType)
     {
       IRoomFactory factory;
@@ -133,11 +118,8 @@ namespace CursovaProject
           factory = null;
           break;
       }
-
       return factory;
     }
-
-
     private void DecreaseAvailableRooms(RoomTypes roomType)
     {
       switch (roomType)
@@ -147,7 +129,6 @@ namespace CursovaProject
         case CursovaProject.RoomTypes.PresidentRoom: AvailablePresidentRooms--; break;
       }
     }
-
     public int GetAvailableRoomsBasedOnType(RoomTypes roomType)
     {
       switch (roomType)
@@ -158,7 +139,6 @@ namespace CursovaProject
         default: return -1;
       }
     }
-
     public void DeleteRoom(int roomNumber)
     {
       var type = _rooms.FirstOrDefault(r => r.RoomNumber == roomNumber).RoomType;
@@ -178,16 +158,13 @@ namespace CursovaProject
           MessageBox.Show("wrong");
           break;
       }
-
       _rooms.Remove(_rooms.FirstOrDefault(r => r.RoomNumber == roomNumber));
       _roomNumbers.Add(roomNumber);
       _roomNumbers.Sort();
     }
-
     public void DeleteResident(int roomNumber, Person residentToDelete)
     {
       HotelRoom hotelRoomWithNeededResident = _rooms.Where(room => room.RoomNumber == roomNumber).FirstOrDefault();
-
       hotelRoomWithNeededResident.Residents.Remove(residentToDelete);
       OnPropertyChanged();
     }
@@ -198,7 +175,6 @@ namespace CursovaProject
         _roomNumbers.Add(i);
       }
     }
-
     public void SortByKey(string key)
     {
       ObservableCollection<HotelRoom> sortedCollection;
@@ -218,11 +194,9 @@ namespace CursovaProject
           break;
       }
     }
-
     public int GetTotalAmountOfResidentInSpecificRoomType(string type)
     {
       type = String.Concat(type.Where(c => !Char.IsWhiteSpace(c)));
-
       switch (type)
       {
         case "StandartRoom":
@@ -232,7 +206,6 @@ namespace CursovaProject
         case "PresidentRoom":
           return HotelRooms.Where(r => r.RoomType == type).Sum(r => r.Residents.Count);
       }
-
       return 0;
     }
 
@@ -241,14 +214,11 @@ namespace CursovaProject
       HotelRoom roomToChange = _rooms.First(room =>  room.RoomNumber == roomNumber);
       roomToChange.DateOfCheckIn = newDateIn;
       roomToChange.DateOfCheckOut = newDateOut;
-
     }
-
     public ObservableCollection<HotelRoom> GetRoomsFilteredRoomsBasedOnOption(string option, string RoomType = "")
     {
       {
         ObservableCollection<HotelRoom> filteredList;
-
         switch (option)
         {
           case "ShowAllRooms":
@@ -263,7 +233,12 @@ namespace CursovaProject
         }
       }
     }
-
+    public void CleanRoom(int roomNumber)
+    {
+      _rooms.Where(room => room.RoomNumber == roomNumber)
+        .First()
+        .IsCleaned = true;
+    }
     protected void OnPropertyChanged([CallerMemberName] string name = null)
     {
       PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));

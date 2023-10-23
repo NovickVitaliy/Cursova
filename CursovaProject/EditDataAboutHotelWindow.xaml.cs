@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
 namespace CursovaProject
 {
   /// <summary>
@@ -29,7 +18,6 @@ namespace CursovaProject
       _chosenHotel = hotel;
       _mainWindow = mainWindow;
     }
-
     private void cbEditOption_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
       if (cbEditOption.SelectedIndex == 0)
@@ -41,17 +29,19 @@ namespace CursovaProject
         cbRoomType.Visibility = Visibility.Visible;
       }
     }
-
     private void Button_Click(object sender, RoutedEventArgs e)
     {
       string value = tbNewValue.Text;
-
-      if (value.Length == 0)
+      if(cbEditOption.SelectedItem == null)
       {
-        MessageBox.Show("Значення не може бути пустим.");
+        MessageBox.Show("Будь ласка виберіть поле яке ви хочете змінити", "Помилка при виборі поля", MessageBoxButton.OK, MessageBoxImage.Error);
         return;
       }
-
+      if (value.Length == 0)
+      {
+        MessageBox.Show("Нове значення не може бути пустим.", "Відсутнє значення", MessageBoxButton.OK, MessageBoxImage.Error);
+        return;
+      }
       if (cbEditOption.SelectedIndex == 0)
       {
         _databaseManager.ChangeHotelName(_chosenHotel, value);
@@ -66,7 +56,6 @@ namespace CursovaProject
         }
         string roomType = cbRoomType.Text;
         RoomTypes type = GetRoomType(roomType);
-
         if(_chosenHotel.HotelRooms.Where(room => room.GetType().Name.Equals(type.ToString())).Count() > newNumberOfRooms)
         {
           MessageBoxResult result = MessageBox.Show("Ви збираєтесь зменшити кількість наявних у вас кімнат. Ви можете втратити дані про людей які вже живуть у вашому готелі. Ви згідні?", "Видаленн кімнат", MessageBoxButton.YesNo);
@@ -76,7 +65,6 @@ namespace CursovaProject
           }
         }
         _databaseManager.ChangeNumberOfRooms(_chosenHotel, type, newNumberOfRooms);
-
       }
       else if (cbEditOption.SelectedIndex == 2)
       {
@@ -86,18 +74,14 @@ namespace CursovaProject
           MessageBox.Show("Неможливо число для ціни");
           return;
         }
-
         string roomType = cbRoomType.Text;
         RoomTypes type = GetRoomType(roomType);
         _databaseManager.ChangePriceOfRoom(_chosenHotel, type, newPrice);
       }
-
-
       _mainWindow.hotelControl.Items.Refresh();
       _mainWindow.HotelDetailsItemsControl.Items.Refresh();
       _mainWindow.HotelRoomsItemsControl.Items.Refresh();
     }
-
     private RoomTypes GetRoomType(string type)
     {
       switch (type)

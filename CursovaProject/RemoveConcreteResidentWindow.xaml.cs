@@ -1,17 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
 namespace CursovaProject
 {
   /// <summary>
@@ -32,7 +20,6 @@ namespace CursovaProject
       _mainWindow = mainWindow;
       ResidentsComboBox.ItemsSource = _currentHotel.GetHotelRoom(roomNumber).Residents;
     }
-
     private void DeleteConcreteResident_Click(object sender, RoutedEventArgs e)
     {
       if (!(ResidentsComboBox.SelectedItem is Person person))
@@ -40,7 +27,6 @@ namespace CursovaProject
         MessageBox.Show("Будь ласка виберіть людину.");
         return;
       }
-
       _databaseManager.DeleteResident(_currentHotel, _roomNumber, person);
       _mainWindow.HotelDetailsItemsControl.Items.Refresh();
       _mainWindow.HotelRoomsItemsControl.Items.Refresh();

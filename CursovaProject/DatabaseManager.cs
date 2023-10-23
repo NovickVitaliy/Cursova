@@ -1,30 +1,22 @@
 ﻿using CursovaProject.Rooms;
 using CursovaProject.Useful_Extensions;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Xml.Linq;
 
 namespace CursovaProject
 {
   public class DatabaseManager
   {
-
     readonly string pathToHotels = Environment.CurrentDirectory + @"../../../HotelsDatabases/";
     private ObservableCollection<Hotel> _hotelList;
-
     #region Methods
-
     public DatabaseManager(ref ObservableCollection<Hotel> hotelList)
     {
       _hotelList = hotelList;
     }
-
     /// <summary>
     /// Method to get all databases
     /// </summary>
@@ -41,7 +33,6 @@ namespace CursovaProject
       }
       return new string[0];
     }
-
     /// <summary>
     /// Creates database of hotel based on given data
     /// </summary>
@@ -74,7 +65,7 @@ namespace CursovaProject
             streamWriter.WriteLine($"availableStandartRooms:{standartRooms}");
             streamWriter.WriteLine($"availableSuperiorRooms:{superiorRooms}");
             streamWriter.WriteLine($"availablePresidentRooms:{presidentRooms}");
-
+            streamWriter.WriteLine($"totalIncome:{0}");
           }
           return true;
         }
@@ -83,7 +74,6 @@ namespace CursovaProject
           MessageBox.Show("Такий готель вже існує.");
         }
       }
-
       return false;
     }
     /// <summary>
@@ -94,18 +84,14 @@ namespace CursovaProject
     public string[] GetNamesOfDatabases(string[] databasesPaths)
     {
       string[] names = new string[databasesPaths.Length];
-
       for (int i = 0; i < databasesPaths.Length; i++)
       {
         string name = databasesPaths[i].Substring(databasesPaths[i].LastIndexOf('/') + 1);
         //name = name.Substring(0, name.LastIndexOf("."));
         names[i] = name;
       }
-
       return names;
     }
-
-
     public void DeleteDatabase(string hotelName)
     {
       if (Directory.Exists(pathToHotels))
@@ -113,16 +99,13 @@ namespace CursovaProject
         Directory.Delete(pathToHotels + hotelName, true);
       }
     }
-
     public void ChangeDatesOfRoom(Hotel hotel, int roomNumber, DateTime newDateIn, DateTime newDateOut)
     {
       if(File.Exists(pathToHotels + hotel.Name + "/" + roomNumber + "/roomInfo.txt"))
       {
         string[] data = File.ReadAllLines(pathToHotels + hotel.Name + "/" + roomNumber + "/roomInfo.txt");
-
         data[2] = $"dateOfIn:{newDateIn}";
         data[3] = $"dateOfOut:{newDateOut}";
-
         File.WriteAllLines(pathToHotels + hotel.Name + "/" + roomNumber + "/roomInfo.txt", data);
       }
       else
@@ -130,7 +113,6 @@ namespace CursovaProject
         MessageBox.Show("Wrong");
       }
     }
-
     public void SaveHotelRoom(int roomNumber, string roomType, Hotel hotel, DateTime dateIn, DateTime dateOut)
     {
       string path = pathToHotels + hotel.Name + "/";
@@ -142,7 +124,6 @@ namespace CursovaProject
           var file = File.Create(path + roomNumber + "/roomInfo.txt");
           file.Dispose();
         }
-
         if (File.Exists(path + roomNumber + "/roomInfo.txt"))
         {
           using (var streamWriter = new StreamWriter(path + roomNumber + "/roomInfo.txt"))
@@ -151,6 +132,7 @@ namespace CursovaProject
             streamWriter.WriteLine($"roomNumber:{roomNumber}");
             streamWriter.WriteLine($"dateOfIn:{dateIn}");
             streamWriter.WriteLine($"dateOfOut:{dateOut}");
+            streamWriter.WriteLine($"isCleaned:{false}");
             ChangeAvailableRooms(hotel.Name, roomType, false);
           }
         }
@@ -163,7 +145,6 @@ namespace CursovaProject
           .Where(folder => folder.Contains(hotelName))
           .FirstOrDefault();
       int value = -1;
-
       string[] data = File.ReadAllLines(pathToHotelDataFile + "/" + hotelName + ".txt");
       int number;
       switch (roomType)
@@ -184,10 +165,8 @@ namespace CursovaProject
           MessageBox.Show("wrong");
           break;
       }
-
       File.WriteAllLines(pathToHotelDataFile + "/" + hotelName + ".txt", data);
     }
-
     public void SaveResident(string hotelName, int roomNumber, Person person)
     {
       using (StreamWriter stream = new StreamWriter(pathToHotels + hotelName + "/" + roomNumber + "/" + "residents.txt", true))
@@ -195,6 +174,7 @@ namespace CursovaProject
         stream.WriteLine($"residentName:{person.Name}");
         stream.WriteLine($"residentSurname:{person.Surname}");
         stream.WriteLine($"residentSecondName:{person.SecondName}");
+        stream.WriteLine($"residentAge:{person.Age}");
         stream.WriteLine($"residentPassportSeries:{person.PassortSeries}");
         stream.WriteLine($"residentPassportNumber:{person.PassportNumber}");
       }
@@ -206,15 +186,10 @@ namespace CursovaProject
       {
         if (Directory.Exists(pathToHotels + chosenHotel.Name + "/" + roomNumber))
         {
-
           string[] data = File.ReadAllLines(pathToHotels + chosenHotel.Name +
               "/" + roomNumber + "/" + "roomInfo.txt");
-
           string roomType = data[0].Substring(data[0].IndexOf(":") + 1);
-
-
           ChangeAvailableRooms(chosenHotel.Name, roomType, true);
-
           Directory.Delete(pathToHotels + chosenHotel.Name + "/" + roomNumber, true);
         }
         else
@@ -224,7 +199,6 @@ namespace CursovaProject
       }
       catch (Exception)
       {
-
         throw;
       }
     }
@@ -237,9 +211,7 @@ namespace CursovaProject
         string[] data = File.ReadAllLines(pathToHotels + hotel.Name + "/" + hotel.Name + ".txt");
         data[0] = data[0].Substring(0, data[0].IndexOf(':') + 1) + newName;
         File.WriteAllLines(pathToHotels + hotel.Name + "/" + hotel.Name + ".txt", data);
-
         File.Move(pathToHotels + hotel.Name + "/" + hotel.Name + ".txt", pathToHotels + hotel.Name + "/" + newName + ".txt");
-
         Directory.Move(pathToHotels + hotel.Name, pathToHotels + newName);
         hotel.Name = newName;
       }
@@ -248,7 +220,6 @@ namespace CursovaProject
         MessageBox.Show("Шлях не знайдений. Перевірте чи знаходиться готель в потрібній папці");
       }
     }
-
     public void ChangePriceOfRoom(Hotel hotel, RoomTypes roomType, int newPrice)
     {
       if (Directory.Exists(pathToHotels + hotel.Name))
@@ -269,7 +240,6 @@ namespace CursovaProject
             data[6] = data[6].Substring(0, data[6].IndexOf(':') + 1) + newPrice;
             break;
         }
-
         File.WriteAllLines(pathToHotels + hotel.Name + "/" + hotel.Name + ".txt", data);
       }
       else
@@ -277,7 +247,6 @@ namespace CursovaProject
         MessageBox.Show("Шлях не знайдений. Перевірте чи знаходиться готель в потрібній папці");
       }
     }
-
     public void ChangeNumberOfRooms(Hotel hotel, RoomTypes roomType, int newNumberOfRooms)
     {
       if (Directory.Exists(pathToHotels + hotel.Name))
@@ -384,7 +353,6 @@ namespace CursovaProject
             }
             break;
         }
-
         File.WriteAllLines(pathToHotels + hotel.Name + "/" + hotel.Name + ".txt", data);
       }
       else
@@ -392,27 +360,19 @@ namespace CursovaProject
         MessageBox.Show("Шлях не знайдений. Перевірте чи знаходиться готель в потрібній папці");
       }
     }
-
-
-
     public void DeleteResident(Hotel hotel, int roomNumber, Person residentToDelete)
     {
       hotel.DeleteResident(roomNumber, residentToDelete);
       string[] data = File.ReadAllLines(pathToHotels + hotel.Name + "/" + roomNumber + "/" + "residents.txt");
-
       var dataAsList = data.ToList();
-
       int? indexOfSearchedItems = dataAsList.IndexOfItemBasedOnPredicate(item => item.Contains(residentToDelete.PassportNumber.ToString()));
       if (!indexOfSearchedItems.HasValue)
       {
         return;
       }
-
-      dataAsList.RemoveRange(indexOfSearchedItems.Value - 4, 5);
-
+      dataAsList.RemoveRange(indexOfSearchedItems.Value - 5, 5);
       File.WriteAllLines(pathToHotels + hotel.Name + "/" + roomNumber + "/" + "residents.txt", dataAsList);
     }
-
     private void ChangePrice(string roomType, Hotel hotel, int newPrice)
     {
       foreach (var room in hotel.HotelRooms)
@@ -424,6 +384,32 @@ namespace CursovaProject
       }
     }
 
+    public void ChangeRoomCleanedStatus(Hotel hotel, int roomNumber, bool isCleaned)
+    {
+      if (File.Exists(pathToHotels + hotel.Name + "/" + roomNumber + "/roomInfo.txt"))
+      {
+        string[] data = File.ReadAllLines(pathToHotels + hotel.Name + "/" + roomNumber + "/roomInfo.txt");
+        data[4] = $"isCleaned:{isCleaned}";
+        File.WriteAllLines(pathToHotels + hotel.Name + "/" + roomNumber + "/roomInfo.txt", data);
+      }
+      else
+      {
+        MessageBox.Show("Wrong");
+      }
+    }
+    public void ChangeTotalIncome(Hotel hotel)
+    {
+      if (File.Exists(pathToHotels + hotel.Name + "/" + $"{hotel.Name}.txt"))
+      {
+        string[] data = File.ReadAllLines(pathToHotels + hotel.Name + "/" + $"{hotel.Name}.txt");
+        data[10] = $"totalIncome:{hotel.TotalIncome}";
+        File.WriteAllLines(pathToHotels + hotel.Name + "/" + $"{hotel.Name}.txt", data);
+      }
+      else
+      {
+        MessageBox.Show("Wrong");
+      }
+    }
     #endregion
   }
 }

@@ -2,9 +2,10 @@ name:Example
 standartRooms:5
 superiorRooms:5
 presidetnRooms:5
-priceStandartRoom:100
-priceSuperiorRoom:250
-pricePresidentRoom:500
-availableStandartRooms:5
+priceStandartRoom:5
+priceSuperiorRoom:5
+pricePresidentRoom:5
+availableStandartRooms:4
 availableSuperiorRooms:5
 availablePresidentRooms:5
+totalIncome:0

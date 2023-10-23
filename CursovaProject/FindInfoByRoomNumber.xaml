@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CursovaProject"
         mc:Ignorable="d"
-        Title="FindInfoByRoomNumber" Height="270" Width="300"
+        Title="Інформацію по номеру готелю" Height="270" Width="300"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Background="#7895CB">

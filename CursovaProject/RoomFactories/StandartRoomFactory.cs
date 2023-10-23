@@ -1,10 +1,4 @@
 ﻿using CursovaProject.Rooms;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace CursovaProject.RoomFactory
 {
     internal class StandartRoomFactory : IRoomFactory
@@ -14,7 +8,6 @@ namespace CursovaProject.RoomFactory
         { 
             _priceStandartRoom = priceStandartRoom;
         }
-
         public HotelRoom GetRoom(int roomNumber)
         {
             return new StandartRoom(_priceStandartRoom, roomNumber, RoomTypes.StandartRoom);

@@ -41,8 +41,8 @@
         </ItemsControl>
       </StackPanel>
     </ScrollViewer>
-    <TextBlock x:Name="ChooseHotelPrompt" Grid.Column="1" Visibility="Collapsed" TextAlignment="Center" FontSize="30">Для початку роботи виберіть готель в лівій колонці</TextBlock>
-    <ScrollViewer x:Name="MainScrollViewer" Grid.Column="1" Visibility="Visible">
+    <TextBlock x:Name="ChooseHotelPrompt" Grid.Column="1" Visibility="Visible" TextAlignment="Center" FontSize="30">Для початку роботи виберіть готель в лівій колонці</TextBlock>
+    <ScrollViewer x:Name="MainScrollViewer" Grid.Column="1" Visibility="Collapsed">
       <StackPanel Name="MainStackPanel" Grid.Column="1">
         <ItemsControl x:Name="HotelDetailsItemsControl" HorizontalAlignment="Center">
           <StackPanel Orientation="Horizontal">
@@ -110,6 +110,9 @@
           <Button Name="MakeDatabaseBasedOnKey" Click="MakeDatabaseBasedOnKey_Click">
             <TextBlock>Сформувати базу даних по ключу</TextBlock>
           </Button>
+          <Button x:Name="GetTotalIncomeButton" Click="GetTotalIncomeButton_Click">
+            <TextBlock>Показати загальний прибуток за весь час</TextBlock>
+          </Button>
         </WrapPanel>
         <Separator BorderBrush="Black" BorderThickness="1"></Separator>
         <StackPanel>
@@ -140,6 +143,7 @@
                       </StackPanel>
                       <StackPanel Grid.Column="1" HorizontalAlignment="Left">
                         <Button x:Name="SumPerDateButton" Tag="{Binding RoomNumber}" Click="SumPerDateButton_Click" Margin="5" Padding="5">Знайти суму яка буде виплачена за весь період проживання</Button>
+                        <Button Margin="5" Padding="5" Name="CleanRoomButton" Click="CleanRoomButton_Click" Tag="{Binding RoomNumber}">Прибрати в кімнаті</Button>
                       </StackPanel>
                     </Grid>
                     <StackPanel x:Name="RoomNavbar" Tag="{Binding RoomNumber}" Orientation="Horizontal" HorizontalAlignment="Left">
@@ -149,24 +153,33 @@
                       <Button Padding="5" Margin="5" Tag="{Binding UniqueRoomNumber}" Click="DeleteConcreteResidentButton_Click">
                         Видалити відвідувачів
                       </Button>
-                      <WrapPanel VerticalAlignment="Center" Orientation="Vertical">
-                        <StackPanel Orientation="Horizontal">
-                          <TextBlock>Вартість номеру за ніч за одну людину:</TextBlock>
-                          <TextBlock Text="{Binding PricePerOnePersonPerDay}"></TextBlock>
-                          <TextBlock>грн.</TextBlock>
+                      <WrapPanel VerticalAlignment="Center" Orientation="Horizontal">
+                        <StackPanel VerticalAlignment="Center" Orientation="Vertical" Margin="5">
+                          <StackPanel Orientation="Horizontal">
+                            <TextBlock>Вартість номеру за ніч за одну людину:</TextBlock>
+                            <TextBlock Text="{Binding PricePerOnePersonPerDay}"></TextBlock>
+                            <TextBlock>грн.</TextBlock>
+                          </StackPanel>
+                          <StackPanel Orientation="Horizontal">
+                            <TextBlock>Загальна вартість разом зі зборами за одну людину:</TextBlock>
+                            <TextBlock Text="{Binding GetTotalPrice}"></TextBlock>
+                            <TextBlock>грн.</TextBlock>
+                          </StackPanel>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                          <TextBlock>Загальна вартість разом зі зборами:</TextBlock>
-                          <TextBlock Text="{Binding GetTotalPrice}"></TextBlock>
-                          <TextBlock>грн.</TextBlock>
+                        <StackPanel Orientation="Vertical" Margin="5">
+                          <StackPanel Orientation="Horizontal">
+                            <TextBlock>В кімнаті прибрано: </TextBlock>
+                            <TextBlock Text="{Binding IsCleaned}"></TextBlock>
+                          </StackPanel>
                         </StackPanel>
                       </WrapPanel>
                     </StackPanel>
-                    <DataGrid Name="RoomDataGrid" AutoGenerateColumns="False">
+                    <DataGrid IsReadOnly="True" Name="RoomDataGrid" AutoGenerateColumns="False">
                       <DataGrid.Columns>
                         <DataGridTextColumn Header="Ім'я" Binding="{Binding Path=Name}"/>
                         <DataGridTextColumn Header="Прізвище" Binding="{Binding Path=Surname}"/>
                         <DataGridTextColumn Header="По-батькові" Binding="{Binding Path=SecondName}"/>
+                        <DataGridTextColumn Header="Вік" Binding="{Binding Path=Age}"/>
                         <DataGridTextColumn Header="Серія паспорта" Binding="{Binding Path=PassortSeries}"/>
                         <DataGridTextColumn Header="Номер паспорта" Binding="{Binding Path=PassportNumber}"/>
                       </DataGrid.Columns>

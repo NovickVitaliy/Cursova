@@ -15,95 +15,69 @@ namespace CursovaProject.Rooms
     private ObservableCollection<Person> _persons;
     public static readonly int MAX_AMOUNT_OF_RESIDENTS = 4;
     private int _currentAmountOfResident = 0;
-
+    private bool _isCleaned;
     public event PropertyChangedEventHandler PropertyChanged;
-
     public HotelRoom(int pricePerOnePersonPerDay, int roomNumber, RoomTypes roomType)
     {
       _pricePerOnePersonPerDay = pricePerOnePersonPerDay;
       _roomNumber = roomNumber;
       _roomType = roomType;
       _persons = new ObservableCollection<Person>();
-
     }
-
     public abstract float GetTotalPrice { get; }
-
     public DateTime DateOfCheckIn
     { 
       get { return _dateOfCheckIn; }
       set { _dateOfCheckIn = value; }
     }
-
     public DateTime DateOfCheckOut
     {
       get { return _dateOfCheckOut; }
       set { _dateOfCheckOut = value; }
     }
-
-
     public int PricePerOnePersonPerDay
     {
-      get 
-      { 
-        return _pricePerOnePersonPerDay; 
-      }
-      set
-      {
-        _pricePerOnePersonPerDay = value;
-        OnPropertyChanged();
-      }
+      get { return _pricePerOnePersonPerDay;}
+      set { _pricePerOnePersonPerDay = value; OnPropertyChanged();}
     }
-
     public int RoomNumber
     {
-      get 
-      { 
-        return _roomNumber; 
-      }
-      set
-      {
-        _roomNumber = value;
-        OnPropertyChanged();
-      }
+      get { return _roomNumber; }
+      set { _roomNumber = value; OnPropertyChanged(); }
     }
-
     public int UniqueRoomNumber
-    {
+    { 
       get { return _roomNumber + 1000; }
     }
     public ObservableCollection<Person> Residents
     {
-      get 
-      { 
-        return _persons; 
-      }
-      set
-      {
-        _persons = value;
-        OnPropertyChanged();
-      }
+      get { return _persons; }
+      set { _persons = value; OnPropertyChanged(); }
     }
-
     public string RoomType
     {
       get { return _roomType.ToString(); }
-
     }
-
     public void RegisterResident(Person person)
     {
       _persons.Add(person);
       _currentAmountOfResident++;
       OnPropertyChanged();
     }
-
     public int NumberOfResidents
     {
       get { return _currentAmountOfResident; }
       set { _currentAmountOfResident = value; OnPropertyChanged(); }
     }
-
+    public bool IsCleaned
+    {
+      get { return _isCleaned; }
+      set { _isCleaned = value; OnPropertyChanged(); }
+    }
+    public virtual float GetTotalPriceInTheEnd()
+    {
+      return GetTotalPrice * (DateOfCheckOut - DateOfCheckIn).Days; 
+    }
     public string GetInfo()
     {
       return $"Кімната номер:{RoomNumber}\n" +
@@ -111,7 +85,6 @@ namespace CursovaProject.Rooms
           $"Ціна за одну людину:{PricePerOnePersonPerDay}\n" +
           $"К-сть проживаючих:{Residents.Count}";
     }
-
     protected void OnPropertyChanged([CallerMemberName] string name = null)
     {
       PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));

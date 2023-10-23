@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CursovaProject"
         mc:Ignorable="d"
-        Title="MakeDatabaseBasedOnKeyWindow" Height="270" Width="320"
+        Title="Сформувати базу даних по ключу" Height="270" Width="320"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Background="#7895CB">

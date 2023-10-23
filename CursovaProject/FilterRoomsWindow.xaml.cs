@@ -17,7 +17,6 @@ namespace CursovaProject
             _chosenHotel = chosenHotel;
             _mainWindow = mainWindow;
         }
-
         private void FilterButton_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -53,7 +52,6 @@ namespace CursovaProject
                 MessageBox.Show($"Будь ласка виберіть {(ae.ParamName == "roomType" ? "тип кімнати" : "опцію для фiльтрування")}");
             }
         }
-
         private void FilterOptionsComboBox_Selected(object sender, RoutedEventArgs e)
         {
             RoomTypesCombobox.Visibility = Visibility.Collapsed;

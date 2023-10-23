@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CursovaProject"
         mc:Ignorable="d"
-        Title="FilterRoomsWindow" Height="270" Width="300"
+        Title="Фільтрація номерів" Height="270" Width="300"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Background="#7895CB">

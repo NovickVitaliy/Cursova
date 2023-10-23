@@ -1,18 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
 namespace CursovaProject
 {
   /// <summary>
@@ -31,7 +20,6 @@ namespace CursovaProject
       RoomsComboBox.ItemsSource = hotel.RoomTypes;
       _databaseManager = databaseManager;
     }
-
     private void RegisterRoomButton_OnClick_Click(object sender, RoutedEventArgs e)
     {
       if (RoomsComboBox.SelectedItem != null)
@@ -40,19 +28,16 @@ namespace CursovaProject
         RoomTypes roomType = GetRoomType(chosenValue);
         DateTime? dateTimeOfIn = dpDateIn.SelectedDate;
         DateTime? dateTimeOfOut = dpDateOut.SelectedDate;
-
-        if(dateTimeOfIn.HasValue && dateTimeOfOut.HasValue == false)
+        if(dateTimeOfIn == null || dateTimeOfOut == null)
         {
           MessageBox.Show("Дата не була введена", "Неправильна дата", MessageBoxButton.OK, MessageBoxImage.Warning);
           return;
         }
-
         if(dateTimeOfIn.Value > dateTimeOfOut.Value)
         {
           MessageBox.Show("Дата заїзду не може бути пізніше дати виїзду", "Неправильна дата", MessageBoxButton.OK, MessageBoxImage.Warning);
           return;
         }
-
         if (_hotel.GetAvailableRoomsBasedOnType(roomType) > 0)
         {
           _hotel.RegisterRoom(roomType, dateTimeOfIn.Value, dateTimeOfOut.Value);
@@ -61,17 +46,14 @@ namespace CursovaProject
         }
         else
         {
-          MessageBox.Show($"Наразі, усі номери типу - {roomType.ToString()} заняті.");
+          MessageBox.Show($"Наразі, усі номери типу - {roomType.ToString()} заняті.", "Недостатньо номерів", MessageBoxButton.OK, MessageBoxImage.Error);
         }
       }
       else
       {
-        MessageBox.Show("Будь ласка, виберіть тип номеру", "Помилка при виборы типу номера", MessageBoxButton.OK, MessageBoxImage.Error);
+        MessageBox.Show("Будь ласка, виберіть тип номеру", "Помилка при виборі типу номера", MessageBoxButton.OK, MessageBoxImage.Error);
       }
-
-
     }
-
     private RoomTypes GetRoomType(string value)
     {
       switch (value)
