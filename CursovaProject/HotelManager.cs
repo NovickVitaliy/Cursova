@@ -21,7 +21,9 @@ namespace CursovaProject
         int priceStR = Convert.ToInt32(data[4].Substring(data[4].IndexOf(':') + 1));
         int priceSrR = Convert.ToInt32(data[5].Substring(data[5].IndexOf(':') + 1));
         int pricePrR = Convert.ToInt32(data[6].Substring(data[6].IndexOf(':') + 1));
+        int totalIncome = Convert.ToInt32(data[10].Substring(data[10].IndexOf(':') + 1));
         Hotel hotel = new Hotel(name, stR, srR, prR, priceStR, priceSrR, pricePrR);
+        hotel.TotalIncome = totalIncome;
         CreateRoomsBasedOnData(pathsToData[i], names[i], hotel);
         list.Add(hotel);
       }

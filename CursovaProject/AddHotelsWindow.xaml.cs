@@ -30,6 +30,11 @@ namespace CursovaProject
         int stRPrice = Convert.ToInt32(tbPriceOnePersonStandartRoom.Text);
         int srRPrice = Convert.ToInt32(tbPriceOnePersonSuperiorRoom.Text);
         int prRPrice = Convert.ToInt32(tbPriceOnePersonPresidentRoom.Text);
+        if(string.IsNullOrEmpty(name))
+        {
+          MessageBox.Show("Ім'я готелю не було вказано");
+          return;
+        }
         if (standartRooms < 0 || superiorRooms < 0 || presidentRooms < 0)
         {
           throw new NegativeValueException("Від'ємне значення не може бути використане для к-сті номерів");

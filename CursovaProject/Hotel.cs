@@ -175,23 +175,25 @@ namespace CursovaProject
         _roomNumbers.Add(i);
       }
     }
-    public void SortByKey(string key)
+    public ObservableCollection<HotelRoom> SortByKey(ObservableCollection<HotelRoom> rooms, string key)
     {
       ObservableCollection<HotelRoom> sortedCollection;
       switch (key)
       {
         case "NumberSortItem":
-          sortedCollection = new ObservableCollection<HotelRoom>(HotelRooms.OrderBy(r => r.RoomNumber));
+          return new ObservableCollection<HotelRoom>(rooms.OrderBy(r => r.RoomNumber));
           HotelRooms = sortedCollection;
           break;
         case "ResidentQuantitySortItem":
-          sortedCollection = new ObservableCollection<HotelRoom>(HotelRooms.OrderBy(r => r.Residents.Count));
+          return new ObservableCollection<HotelRoom>(rooms.OrderBy(r => r.Residents.Count));
           HotelRooms = sortedCollection;
           break;
         case "TypeOfRoomSortItem":
-          sortedCollection = new ObservableCollection<HotelRoom>(HotelRooms.OrderBy(r => r.RoomType));
+          return new ObservableCollection<HotelRoom>(rooms.OrderBy(r => r.RoomType));
           HotelRooms = sortedCollection;
           break;
+        default:
+          return new ObservableCollection<HotelRoom>();
       }
     }
     public int GetTotalAmountOfResidentInSpecificRoomType(string type)

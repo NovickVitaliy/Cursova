@@ -1,5 +1,0 @@
-roomType:StandartRoom
-roomNumber:1
-dateOfIn:23.10.2023 0:00:00
-dateOfOut:25.10.2023 0:00:00
-isCleaned:True

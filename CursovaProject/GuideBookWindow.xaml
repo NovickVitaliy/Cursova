@@ -75,15 +75,15 @@
           <Image Source="C:\Users\User\source\repos\CursovaProject\CursovaProject\GuidebookImages\editData.png"></Image>
         </Border>
         <Label FontSize="20" FontWeight="Bold" Content="7. Фільтрація кімнат"/>
-        <Label>Ви можете відсортувати кімнати за певним ключем натиснувши кнопку "Відфільтрувати по ключу"</Label>
+        <Label>Ви можете відфільтрувати кімнати за певним ключем натиснувши кнопку "Відфільтрувати по ключу"</Label>
         <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left">
           <Image Source="C:\Users\User\source\repos\CursovaProject\CursovaProject\GuidebookImages\filterData.png"></Image>
         </Border>
-        <Label>При натисканні на кнопку вас відриється вікно де ви зможете вибрати ключ по якому ви хочете відсортувати кімнати в готелі</Label>
+        <Label>При натисканні на кнопку вас відриється вікно де ви зможете вибрати ключ по якому ви хочете відфільтрувати кімнати в готелі</Label>
         <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left">
           <Image Source="C:\Users\User\source\repos\CursovaProject\CursovaProject\GuidebookImages\filterItself.png"></Image>
         </Border>
-        <Label FontSize="20" FontWeight="Bold" Content="7. Фільтрація кімнат"/>
+        <Label FontSize="20" FontWeight="Bold" Content="8. Сортування кімнат"/>
         <Label>Також ви можете відсортувати кімнати за певним ключем натиснувши на кнопку "Відсортувати по певному ключу"</Label>
         <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left">
           <Image Source="C:\Users\User\source\repos\CursovaProject\CursovaProject\GuidebookImages\saveData.png">

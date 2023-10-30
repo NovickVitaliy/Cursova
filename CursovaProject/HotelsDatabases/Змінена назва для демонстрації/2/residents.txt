@@ -1,0 +1,12 @@
+residentName:Ім'я4
+residentSurname:Прізвище4
+residentSecondName:По-батькові5
+residentAge:31
+residentPassportSeries:3123123
+residentPassportNumber:4124512
+residentName:ВФІВФІ
+residentSurname:ВФІВФІ
+residentSecondName:ВФІВФІ
+residentAge:43
+residentPassportSeries:412412
+residentPassportNumber:4125213

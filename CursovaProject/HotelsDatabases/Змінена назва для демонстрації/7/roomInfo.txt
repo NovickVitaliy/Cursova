@@ -1,0 +1,5 @@
+roomType:StandartRoom
+roomNumber:7
+dateOfIn:11.10.2023 0:00:00
+dateOfOut:04.11.2023 0:00:00
+isCleaned:False

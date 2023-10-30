@@ -1,4 +1,8 @@
-﻿using System.Windows;
+﻿using CursovaProject.Rooms;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Controls;
 namespace CursovaProject
 {
@@ -21,8 +25,9 @@ namespace CursovaProject
       {
         var item = SortKeys.SelectedItem as ComboBoxItem;
         string key = item.Name;
-        _chosenHotel.SortByKey(key);
-        _itemsControl.ItemsSource = _chosenHotel.HotelRooms;
+        var sorted = _chosenHotel.SortByKey((ObservableCollection<HotelRoom>)_itemsControl.ItemsSource, key);
+        _itemsControl.ItemsSource = sorted;
+
       }
       else
       {

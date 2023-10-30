@@ -1,0 +1,12 @@
+residentName:КАУКЙЦ
+residentSurname:КЙЦКЙЦ
+residentSecondName:КЙЦКЙ
+residentAge:412
+residentPassportSeries:634152
+residentPassportNumber:125253
+residentName:ЕГКНКЕУНЕ
+residentSurname:ЕКУКННУ
+residentSecondName:НУКН
+residentAge:423
+residentPassportSeries:6856345
+residentPassportNumber:63426236

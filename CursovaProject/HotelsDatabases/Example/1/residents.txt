@@ -1,6 +1,0 @@
-residentName:Віталій
-residentSurname:Новік
-residentSecondName:Михайлович
-residentAge:18
-residentPassportSeries:3765127
-residentPassportNumber:3981276

@@ -1,0 +1,5 @@
+roomType:SuperiorRoom
+roomNumber:3
+dateOfIn:26.10.2023 0:00:00
+dateOfOut:02.11.2023 0:00:00
+isCleaned:True

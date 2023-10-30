@@ -1,0 +1,5 @@
+roomType:PresidentRoom
+roomNumber:4
+dateOfIn:29.10.2023 0:00:00
+dateOfOut:28.09.2025 0:00:00
+isCleaned:False
