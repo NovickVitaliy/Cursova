@@ -16,5 +16,5 @@ C:\Users\User\source\repos\CursovaProject\CursovaProject\App.xaml
 181681431035
 AddHotelsWindow.xaml;AddResidentWindow.xaml;DeleteHotelWindow.xaml;FreeHotelRoomWindow.xaml;EditDataAboutHotelWindow.xaml;EditDatesWindow.xaml;FilterRoomsWindow.xaml;FindInfoByRoomNumber.xaml;GuideBookWindow.xaml;MainWindow.xaml;MakeDatabaseBasedOnKeyWindow.xaml;RegisterResidentWindow.xaml;RemoveConcreteResidentWindow.xaml;SortByKeyWindow.xaml;TotalNumbersOfResidentsInSpecificRoomTypeWindow.xaml;
 
-True
+False
 

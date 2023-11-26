@@ -48,3 +48,7 @@ C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\RemoveConcret
 C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\TotalNumbersOfResidentsInSpecificRoomTypeWindow.baml
 C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\FreeHotelRoomWindow.g.cs
 C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\FreeHotelRoomWindow.baml
+C:\Users\User\source\repos\CursovaProject\CursovaProject\bin\Debug\CursovaProject.exe.manifest
+C:\Users\User\source\repos\CursovaProject\CursovaProject\bin\Debug\CursovaProject.application
+C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\CursovaProject.exe.manifest
+C:\Users\User\source\repos\CursovaProject\CursovaProject\obj\Debug\CursovaProject.application

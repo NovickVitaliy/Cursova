@@ -1,0 +1,6 @@
+residentName:das
+residentSurname:das
+residentSecondName:das
+residentAge:312
+residentPassportSeries:32
+residentPassportNumber:312

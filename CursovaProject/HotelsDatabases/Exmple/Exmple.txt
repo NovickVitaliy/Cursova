@@ -1,0 +1,11 @@
+name:Exmple
+standartRooms:5
+superiorRooms:5
+presidetnRooms:5
+priceStandartRoom:100
+priceSuperiorRoom:200
+pricePresidentRoom:500
+availableStandartRooms:5
+availableSuperiorRooms:5
+availablePresidentRooms:5
+totalIncome:0

@@ -1,0 +1,11 @@
+name:Учфьзду
+standartRooms:5
+superiorRooms:5
+presidetnRooms:5
+priceStandartRoom:500
+priceSuperiorRoom:10000
+pricePresidentRoom:20000
+availableStandartRooms:5
+availableSuperiorRooms:5
+availablePresidentRooms:5
+totalIncome:0

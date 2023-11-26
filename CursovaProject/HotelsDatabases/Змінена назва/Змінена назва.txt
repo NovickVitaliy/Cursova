@@ -1,11 +1,11 @@
-name:Змінена назва для демонстрації
-standartRooms:15
+name:Змінена назва
+standartRooms:20
 superiorRooms:5
 presidetnRooms:5
-priceStandartRoom:5000
+priceStandartRoom:100000
 priceSuperiorRoom:250
 pricePresidentRoom:500
-availableStandartRooms:12
+availableStandartRooms:15
 availableSuperiorRooms:3
 availablePresidentRooms:2
 totalIncome:30000

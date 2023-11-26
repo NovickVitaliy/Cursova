@@ -10,7 +10,7 @@ namespace CursovaProject
 {
   public class DatabaseManager
   {
-    readonly string pathToHotels = Environment.CurrentDirectory + @"../../../HotelsDatabases/";
+    private readonly string pathToHotels = Environment.CurrentDirectory + @"../../../HotelsDatabases/";
     private ObservableCollection<Hotel> _hotelList;
     #region Methods
     public DatabaseManager(ref ObservableCollection<Hotel> hotelList)
@@ -29,7 +29,7 @@ namespace CursovaProject
       }
       else
       {
-        MessageBox.Show("Не вдалося знайти шлях до папки з записами про готелі.");
+        Directory.CreateDirectory(pathToHotels);
       }
       return new string[0];
     }
